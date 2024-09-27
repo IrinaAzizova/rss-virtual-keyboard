@@ -1,0 +1,111 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: 'Fira Code', monospace; */
+    font-family: 'Roboto', sans-serif;
+    border-radius: 5px;
+}
+
+.overlay {
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(128, 0, 128, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:url("../img/bg.jpg") no-repeat center center / cover;
+}
+
+.keyboard {
+    padding: 2rem;
+    background-color: #fff;
+    border-radius: 10px;
+    max-width: 910px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    row-gap: 2rem;
+    background: linear-gradient(to bottom, #ebe9f9 0%,#d8d0ef 55%,#d8d0ef 55%,#c1bfea 100%);
+    &__heading {
+        font-family: 'Roboto', sans-serif;
+        font-size: 1.5rem;
+        font-weight: 400;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+    }
+    &__text {
+        background-color: #fff;
+        padding: 1rem;
+        min-height: 3rem;
+        border: rgba(0,0,0,0.4) 1px solid;
+        word-wrap: break-word;
+        &:focus {
+            outline: none;
+            border: #f1da36 2px solid;
+            box-shadow: 10px 20px 25px rgba(0,0,0,0.4)
+        }
+    }
+    &__wrapper {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1rem;
+        align-self: center;
+    }
+    &__row {
+        display: flex;
+        column-gap: 0.5rem;
+    }
+    &__btn {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 3rem;
+        height: 3rem;
+        font-size: 1.1rem;
+        font-weight: 700;
+        outline: none;
+        border: none;
+        text-transform: capitalize;
+        transition: all 0.3s;
+        box-shadow: inset -8px 0 8px rgba(0,0,0,0.15),/*тень*/
+                    inset 0 -8px 8px rgba(0,0,0,0.25)/* ,
+                        0 0 0 2px rgba(0,0,0,0.75) */,
+                        10px 20px 25px rgba(0,0,0,0.4);        
+        &_yellow {
+            background: linear-gradient(135deg, #fefcea 0%,#fefcea 1%,#f1da36 100%);
+        }
+        &_active {
+            background: rgba(0,0,0,0.5);
+            box-shadow: none;
+            color: #FFFF00;
+        }
+        &_shift {
+            background: rgba(0,0,0,0.5);
+            box-shadow: none;
+            color: #FFFF00;
+        }
+        span {
+            position: absolute;
+            top: 0.25rem;
+            left: 10px;
+            font-size: 0.7em;
+            font-weight: 400;
+        }
+    }
+}
+   
+@keyframes blinker {
+    from { opacity: 1.0; }
+    50% { opacity: 0.0; }
+    to { opacity: 1.0; }
+}
+
+.blink {
+    animation-name: blinker;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(1.0,0,0,1.0);
+    animation-duration: 1s;
+}
